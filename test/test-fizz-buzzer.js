@@ -59,7 +59,7 @@ describe("fizzBuzzer", function() {
       });
     });
 
-    it("should raise an error when input is not a number", function() {
+    xit("should raise an error when input is not a number", function() {
       const sadCases = [
         {ans: "rabbit"},
         {ans: ["can of worms"]}
@@ -69,20 +69,23 @@ describe("fizzBuzzer", function() {
         expect(function() {
           fizzBuzzer(input.ans)
         }).to.throw(Error)
-      }) //WHy all the hubbub about another function declaration?
+      });
+
     });
 
-    xit("should throw NaN when input is not a number", function() {
+    it("should throw NaN when input is not a number", function() {
       const sadCases = [
         {ans: "rabbit"},
         {ans: ["can of worms"]}
       ];
 
       sadCases.forEach( (input) => {
-        const answer = fizzBuzzer(input.ans)
-        // expect(answer).to.throw('`num` must be a number');
-        expect(answer).to.be.NaN;
+        expect(function() {
+          fizzBuzzer(input.ans)
+        }).to.be.NaN;
       });
-    }); //NOTE: How to do multiple error throwing?
+
+    });
+
   })
 })
